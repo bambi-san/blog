@@ -4,6 +4,8 @@ date: 2021-04-15T23:10:30+09:00
 draft: false
 tags:
 - git
+series:
+- gitの使い方
 ---
 
 
