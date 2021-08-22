@@ -1,8 +1,8 @@
 ---
 title: "自己認証局と自己署名証明書を作る"
-date: 2021-08-08T22:31:36+09:00
+date: 2021-08-22T15:31:36+09:00
 description:
-draft: true
+draft: false
 hideToc: false
 enableToc: true
 enableTocContent: true # 目次
@@ -23,11 +23,13 @@ categories:
 * サーバ証明書を作成する
 * クライアント証明書を作成する
 
-## インストール
+## やってみる
 
-READMEにある通り、homebrewを使ってインストールする。
+### 事前準備
 
-### ディレクトリ構成
+ローカルの設定ファイルいじりたくなかったのでコンテナ上でできるようにした。
+* []()
+
 
 ### 自己認証局と自己署名証明書を作成する
 
@@ -93,9 +95,9 @@ $ cp -a openssl.cnf mid_openssl.cnf
 
 # openssl_mid.cnf の一部を書き換える
 $ vi mid_openssl.cnf
-#[ CA_default ]
+# [ CA_default ]
 #
-#dir             = /etc/tls/midCA
+# dir             = /etc/tls/midCA
 
 # 秘密鍵と証明書要求(csr)の生成
 $ openssl req -new -newkey rsa:2048 \
@@ -155,9 +157,9 @@ $ echo 01 > /etc/tls/rootCA/serial
 ```bash
 # 事前準備(cnfファイルの編集)
 $ vi openssl_server.cnf
-#[ usr_cert ]
-#basicConstraints = CA:FALSE
-#nsCertType =  server
+# [ usr_cert ]
+# basicConstraints = CA:FALSE
+# nsCertType =  server
 
 # 秘密鍵と証明書要求(csr)の生成
 $ openssl req -new -newkey rsa:2048 \
@@ -186,9 +188,9 @@ $ openssl ca -md sha256 \
 ```bash
 # 事前準備
 $ vi openssl_client.cnf
-#[ usr_cert ]
-#basicConstraints = CA:FALSE
-#nsCertType =  client, email, objsign
+# [ usr_cert ]
+# basicConstraints = CA:FALSE
+# nsCertType =  client, email, objsign
 
 # 秘密鍵と証明書要求(csr)の生成
 $ openssl req -new -newkey rsa:2048 \
@@ -211,22 +213,19 @@ $ openssl ca -md sha256 \
   -infiles client/client.csr
 ```
 
-TLS1.3の場合、RSAだけでなくECDSAに対応した証明書も必要になる。コマンドはこちら
-keyを
+TLS1.3の場合、RSAだけでなくECDSAに対応した証明書も必要になる。コマンドはこちら。
 ```
 openssl ecparam -genkey -name prime256v1 -out ecdsa.key
 ```
 
+### 所感
+
+コンテナから必要な設定入れて証明書作成するのが楽だった。
+微妙に面倒なのでcliとかにしたい。。。
 
 ## 参考
-* [【SSLメモ】自己署名証明書の作成コマンド](https://qiita.com/nagait84/items/99516c2eee4279564ca5)：opensslのオプションについてとてもわかりやすくありがたい。
-https://glodia.jp/blog/%E3%82%AF%E3%83%A9%E3%82%A4%E3%82%A2%E3%83%B3%E3%83%88%E8%A8%BC%E6%98%8E%E6%9B%B8%E3%81%AE%E4%BD%9C%E3%82%8A%E6%96%B9
+* [【SSLメモ】自己署名証明書の作成コマンド](https://qiita.com/nagait84/items/99516c2eee4279564ca5)
 * [Sanwa Systems Tech Blog](https://tech.sanwasystem.com/entry/2015/08/31/234131)
-
-
-
-
-
 
 
 
