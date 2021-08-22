@@ -15,9 +15,9 @@
 <link rel=stylesheet href=/scss/custom.min.css>
 <link rel=alternate type=application/rss+xml title=RSS href=https://www.anypalette.com/ja/index.xml>
 <meta name=description content="BAMBi's 技術ブログ">
-<meta name=created content="2021-08-22T15:31:36+0900">
-<meta name=modified content="2021-08-22T15:31:36+0900">
-<meta property="article:published_time" content="2021-08-22T15:31:36+0900">
+<meta name=created content="2021-08-22T23:31:36+0900">
+<meta name=modified content="2021-08-22T23:31:36+0900">
+<meta property="article:published_time" content="2021-08-22T23:31:36+0900">
 <meta name=author content="BAMBi">
 <meta property="og:site_name" content="BAMBi's Blog">
 <meta property="og:title" content>
@@ -177,6 +177,25 @@ BAMBi's Blog
 <main class="main inner" data-sidebar-position=right>
 <div class="list__main lm">
 <div class=summary__container data-display=block>
+<article class=summary-classic data-ani=true>
+<div class=summary-classic__flex-box>
+<div class=summary-classic__content>
+<header>
+<h5 class="title h5"><a href=https://www.anypalette.com/ja/posts/20210103_add-blog-comment/>ブログにコメント機能を追加する(disqus)</a> </h5>
+<h6 class="subtitle caption">
+<time title=作成日 dir=ltr>📅&nbsp;2021/1/3 </time>
+<span title=読了時間 dir=ltr> &#183; ☕&nbsp;2&nbsp;分で読めます </span>
+</h6>
+</header>
+<div>
+<div class="summary-classic__text p2">
+概要 コメントを投稿できる機能を追加する。 調べてみたらdisqusを利用した方法が多かったのでそれを利用してさっくりやってみる。 やってみる ユー
+</div>
+</div>
+</div>
+</div>
+<hr>
+</article>
 <article class=summary-classic data-ani=true>
 <div class=summary-classic__flex-box>
 <div class=summary-classic__content>
@@ -406,25 +425,6 @@ BAMBi's Blog
 </div>
 <hr>
 </article>
-<article class=summary-classic data-ani=true>
-<div class=summary-classic__flex-box>
-<div class=summary-classic__content>
-<header>
-<h5 class="title h5"><a href=https://www.anypalette.com/ja/posts/20191212_flask-appbuilder-favicon/>【Flask】flask-appbuilder を使ったwebアプリにfaviconを表示させたい</a> </h5>
-<h6 class="subtitle caption">
-<time title=作成日 dir=ltr>📅&nbsp;2019/12/25 </time>
-<span title=読了時間 dir=ltr> &#183; ☕&nbsp;2&nbsp;分で読めます </span>
-</h6>
-</header>
-<div>
-<div class="summary-classic__text p2">
-この記事は2019/12/12にQrunchに掲載した内容です。 （Qrunchのサービス終了に伴いこちらに引っ越ししました） まとめてアウトプ
-</div>
-</div>
-</div>
-</div>
-<hr>
-</article>
 <ul class=pagination>
 <li><a href=/ja/>1</a></li>
 <li class=active><a href=/ja/page/2/>2</a></li>
@@ -488,6 +488,9 @@ BAMBi
 <a href=/ja/posts/ class="sidebar-recent__title p2">Posts</a>
 <ul class=sidebar-recent__ul>
 <li>
+<a href=/ja/posts/20210822_git_push_ssh/ class="sidebar-recent__a p2">[Git]httpsを使っていたリポジトリをsshで操作できるようにする</a>
+</li>
+<li>
 <a href=/ja/posts/20210822_generate-cert/ class="sidebar-recent__a p2">自己認証局と自己署名証明書を作る</a>
 </li>
 <li>
@@ -498,9 +501,6 @@ BAMBi
 </li>
 <li>
 <a href=/ja/posts/20210718_iframe/ class="sidebar-recent__a p2">ブログにiframeを埋め込みたい(Hugo ZZO)</a>
-</li>
-<li>
-<a href=/ja/posts/20210704_github-learning-git/ class="sidebar-recent__a p2">【GitHub】GitHub learning使ってみる</a>
 </li>
 </ul>
 </section>
@@ -580,7 +580,7 @@ gin
 git
 </span>
 <span class=taxo__num dir=auto>
-2
+3
 </span>
 </a>
 </span>

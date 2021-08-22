@@ -232,10 +232,45 @@ kimbie
 <h2 id=やってみる>やってみる</h2>
 <h3 id=事前準備>事前準備</h3>
 <p>ローカルの設定ファイルいじりたくなかったのでコンテナ上でできるようにした。</p>
-<ul>
-<li><a href></a></li>
-</ul>
-<h3 id=自己認証局と自己署名証明書を作成する>自己認証局と自己署名証明書を作成する</h3>
+<div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt>1
+</span><span class=lnt>2
+</span><span class=lnt>3
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-Dockerfile data-lang=Dockerfile><span class=k>FROM</span><span class=s> alpine</span><span class=err>
+</span><span class=err>
+</span><span class=err></span><span class=k>RUN</span> apk upgrade <span class=o>&amp;&amp;</span> apk add --update bash openssl<span class=err>
+</span></code></pre></td></tr></table>
+</div>
+</div><div class=highlight><div class=chroma>
+<table class=lntable><tr><td class=lntd>
+<pre tabindex=0 class=chroma><code><span class=lnt> 1
+</span><span class=lnt> 2
+</span><span class=lnt> 3
+</span><span class=lnt> 4
+</span><span class=lnt> 5
+</span><span class=lnt> 6
+</span><span class=lnt> 7
+</span><span class=lnt> 8
+</span><span class=lnt> 9
+</span><span class=lnt>10
+</span></code></pre></td>
+<td class=lntd>
+<pre tabindex=0 class=chroma><code class=language-yaml:docker-compose.yml data-lang=yaml:docker-compose.yml><span class=nt>version</span><span class=p>:</span><span class=w> </span><span class=s1>&#39;3&#39;</span><span class=w>
+</span><span class=w>
+</span><span class=w></span><span class=nt>services</span><span class=p>:</span><span class=w>
+</span><span class=w>  </span><span class=nt>cert-generate</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span><span class=nt>build</span><span class=p>:</span><span class=w>
+</span><span class=w>      </span><span class=nt>context</span><span class=p>:</span><span class=w> </span><span class=l>.</span><span class=w>
+</span><span class=w>    </span><span class=nt>container_name</span><span class=p>:</span><span class=w> </span><span class=l>cert</span><span class=w>
+</span><span class=w>    </span><span class=nt>volumes</span><span class=p>:</span><span class=w>
+</span><span class=w>    </span>- <span class=l>./tls:/etc/tls</span><span class=w>
+</span><span class=w>    </span><span class=nt>tty</span><span class=p>:</span><span class=w> </span><span class=kc>true</span><span class=w>
+</span></code></pre></td></tr></table>
+</div>
+</div><h3 id=自己認証局と自己署名証明書を作成する>自己認証局と自己署名証明書を作成する</h3>
 <div class=highlight><div class=chroma>
 <table class=lntable><tr><td class=lntd>
 <pre tabindex=0 class=chroma><code><span class=lnt> 1
@@ -652,6 +687,11 @@ BAMBi
 <div class=pagination-single__left-title>mkcertを使って証明書を作成する</div>
 </a>
 <div class=grow></div>
+<a href=https://www.anypalette.com/ja/posts/20210822_git_push_ssh/ class=pagination-single__right>
+<div class=pagination-single__right-title>[Git]httpsを使っていたリポジトリをsshで操作できるようにする</div>
+<div class=pagination-single__icon><svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" viewBox="0 0 24 24"><path fill="none" d="M0 0h24v24H0V0z"/><path fill="currentcolor" d="M5 13h11.17l-4.88 4.88c-.39.39-.39 1.03.0 1.42.39.39 1.02.39 1.41.0l6.59-6.59c.39-.39.39-1.02.0-1.41l-6.58-6.6c-.39-.39-1.02-.39-1.41.0s-.39 1.02.0 1.41L16.17 11H5c-.55.0-1 .45-1 1s.45 1 1 1z"/></svg>
+</div>
+</a>
 </nav>
 <div id=disqus_thread></div>
 <script>let disqus_config=function(){};(function(){if(["localhost","127.0.0.1"].indexOf(window.location.hostname)!=-1){document.getElementById('disqus_thread').innerHTML='Disqus comments not available by default when the website is previewed locally.';return}var b=document,a=b.createElement('script');a.async=!0,a.src='https://www-anypalette-com.disqus.com/embed.js',a.setAttribute('data-timestamp',+new Date),(b.head||b.body).appendChild(a)})()</script>
