@@ -28,8 +28,24 @@ categories:
 ### 事前準備
 
 ローカルの設定ファイルいじりたくなかったのでコンテナ上でできるようにした。
-* []()
+```Dockerfile
+FROM alpine
 
+RUN apk upgrade && apk add --update bash openssl
+```
+
+```yaml:docker-compose.yml
+version: '3'
+
+services:
+  cert-generate:
+    build:
+      context: .
+    container_name: cert
+    volumes:
+    - ./tls:/etc/tls
+    tty: true
+```
 
 ### 自己認証局と自己署名証明書を作成する
 
